@@ -46,7 +46,7 @@ export const Add = () => {
         <label htmlFor="cover">Cover</label>
         <input type="text" placeholder='cover' onChange={handleChange}  name='cover'/>
 
-        <button onClick={handleClick}>Add</button>
+        <button onClick={handleClick} className='formButton'>Add</button>
     </div>
   )
 }

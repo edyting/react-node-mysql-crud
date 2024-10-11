@@ -50,6 +50,7 @@ app.post("/books",(req,res)=>{
     })
 })
 
+// delete
 app.delete("/books/:id",(req,res)=>{
     const bookId = req.params.id;
 
@@ -60,6 +61,23 @@ app.delete("/books/:id",(req,res)=>{
     })
 })
 
+// update
+app.put("/books/:id",(req,res)=>{
+    const bookId = req.params.id;
+
+    const values = [
+        req.body.title,
+        req.body.description,
+        req.body.cover,
+        req.body.price
+    ];
+
+    const query = "UPDATE books SET `title` = ? ,`description` = ? ,`price` = ?,`cover` = ? WHERE id = ?";
+    db.query(query,[...values,bookId],(err,data)=>{
+        if(err) return res.json(err);
+        return res.json("book updated successfully");
+    })
+})
 
 
 app.listen(5000,console.log("listening on port 5000..."))
