@@ -35,7 +35,7 @@ app.post("/books",(req,res)=>{
 
     db.query(query,[values],(err,data)=>{
         if(err) return res.json(err);
-        return res.json(data);
+        return res.json("book submitted successfully");
     })
 })
 
